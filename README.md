@@ -1,4 +1,38 @@
-# CoStudent
+<div align="center">
+<h1>Co-Student: Collaborating Strong and Weak Students for Sparsely Annotated Object Detection </h1>
+
+[Lianjun Wu](https://github.com/wulianjun-112)<sup>1</sup>, [Jiangxiao Han]()<sup>1</sup>, [Zengqiang Zheng]()<sup>2</sup>, [Xinggang Wang](https://xwcv.github.io/)<sup>1 :email:</sup>
+ 
+<sup>1</sup>  [School of EIC, HUST](http://english.eic.hust.edu.cn/),
+<sup>2</sup>  [Wuhan Jingce Electronic Group Co., Ltd.]()
+
+
+<sup>:email:</sup> corresponding author.
+
+**ECCV 2024**
+</div>
+
+### News
+* `[2024-7-2]` Co-Student is accepted by ECCV 2024!
+
+
+## Abstract
+The Sparsely Annotated Object Detection (SAOD) tackles the issue of incomplete labeling in object detection. Compared with Fully Annotated Object Detection (FAOD), SAOD is more complicated and challenging. Unlabeled objects tend to provide wrong supervision to the detectors during training, resulting in inferior performance for prevalent object detectors.
+Shrinking the performance gap between SAOD and FAOD does contribute to reducing the labeling cost.
+Existing methods tend to exploit pseudo-labeling for unlabeled objects while suffering from two issues: (1) they fail to make full use of unlabeled objects mined from the student detector and (2) the pseudo-labels contain much noise.
+To tackle those two issues, we introduce Co-Student, a novel framework aiming to bridge the gap between SAOD and FAOD via fully exploiting the pseudo-labels from both teacher and student detectors.
+The proposed Co-Student comprises a sophisticated teacher to denoise the pseudo-labels for unlabeled objects and two collaborative students that leverage strong and weak augmentations to excavate pseudo-labels.
+The students exchange the denoised pseudo-labels and learn from each other with consistency regularization brought by strong-weak augmentations.
+Without bells and whistles, the proposed Co-Student framework with the one-stage detector, i.e., FCOS, can achieve state-of-the-art performance on the COCO dataset with sparse annotations under diverse settings.
+Compared to previous works, it obtains 1.0%~3.0% AP improvements under five settings of sparse annotations and achieves 95.1% performance compared to FCOS trained on fully annotated COCO dataset. 
+
+<div align="center">
+<img src="assets/ECCV2024_overview-1.png" />
+</div>
+
+
+# Preliminary
+
 The codes for our work "Co-Student: Collaborating Strong and Weak Students for Sparsely Annotated Object Detection" based on [cvpods](https://github.com/Megvii-BaseDetection/cvpods.git)
 
 ## 1. Download resnet pre-trained model (Res-50,Res-101,ResX-101-32x8d) by url as follows:
@@ -45,24 +79,8 @@ Fisrt, check the version of Cuda compilation tools by:
 nvcc -V
 ```
 Assume your Cuda compilation tools vesion is 11.1,
-
-If your machine is able to access the Internet, simply install using
 ```shell
 pip install torch==1.8.0+cu111 torchvision==0.9.0+cu111 -f https://download.pytorch.org/whl/torch_stable.html
-```
-
-Or, you can install them offline, download torch and torchvision by the following urls:
-[torch]https://download.pytorch.org/whl/cu111/torch-1.8.0%2Bcu111-cp36-cp36m-linux_x86_64.whl
-[torchvision]https://download.pytorch.org/whl/cu111/torchvision-0.9.0%2Bcu111-cp36-cp36m-linux_x86_64.whl
-
-if your platform is Windows, download torch and torchvision by the following urls:
-[torch]https://download.pytorch.org/whl/cu111/torch-1.8.0%2Bcu111-cp36-cp36m-win_amd64.whl
-[torchvision]https://download.pytorch.org/whl/cu111/torchvision-0.9.0%2Bcu111-cp36-cp36m-win_amd64.whl
-
-Upload these two whl files to your offline machine, and install them by:
-```shell
-pip install /path/torch-1.8.0%2Bcu111-cp36-cp36m-linux_x86_64.whl
-pip install /path/torchvision-0.9.0%2Bcu111-cp36-cp36m-linux_x86_64.whl
 ```
 
 <!-- **NOTE** (for Windows) [Build Tools for Visual Studio 2019 (version 16.9)](https://download.visualstudio.microsoft.com/download/pr/245e99d9-73d8-4db6-84eb-493b0c059e15/b2fd18b4c66d507d50aced118be08937da399cd6edb3dc4bdadf5edc139496d4/vs_BuildTools.exe) is needed. -->
@@ -78,7 +96,7 @@ cd /path/CoStudent
 pip install -e .
 ```
 
-**Step 4.** Training COCO
+# Training COCO
 You can train our mothod CoStudent on COCO-miss50p for 12 epochs by the following command:
 ```bash
 bash tools/train.sh
