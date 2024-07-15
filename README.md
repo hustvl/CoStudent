@@ -102,7 +102,19 @@ You can train our mothod CoStudent on COCO-miss50p for 12 epochs by the followin
 bash tools/train.sh
 ```
 
+## Citations
+```bibtex
+@inproceedings{wu2024CoStudent,
+      title={Co-Student: Collaborating Strong and Weak Students for Sparsely Annotated Object Detection}, 
+      author={Lianjun Wu, Jiangxiao Han, Zengqiang Zheng and Xinggang Wang},
+      year={2024},
+      booktitle={ECCV}
+}
+```
 
+## License
+
+Released under the [MIT](LICENSE) License.
 
 
 
