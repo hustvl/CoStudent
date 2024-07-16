@@ -72,7 +72,7 @@ conda create --name cvpods python=3.6 -y
 conda activate cvpods
 ```
 
-**Step 1.** Install corresponding version of torch and torchvision depends on the version of Cuda compilation tools you use.
+**Step 2.** Install corresponding version of torch and torchvision depends on the version of Cuda compilation tools you use.
 
 Fisrt, check the version of Cuda compilation tools by:
 ```shell
@@ -85,12 +85,12 @@ pip install torch==1.8.0+cu111 torchvision==0.9.0+cu111 -f https://download.pyto
 
 <!-- **NOTE** (for Windows) [Build Tools for Visual Studio 2019 (version 16.9)](https://download.visualstudio.microsoft.com/download/pr/245e99d9-73d8-4db6-84eb-493b0c059e15/b2fd18b4c66d507d50aced118be08937da399cd6edb3dc4bdadf5edc139496d4/vs_BuildTools.exe) is needed. -->
 
-**Step 2.** Install other needed packages
+**Step 3.** Install other needed packages
 ```shell
 pip install -r requirements.txt
 ```
 
-**Step 3.**  Build cvpods as follows:
+**Step 4.**  Build cvpods as follows:
 ```shell
 cd /path/CoStudent
 pip install -e .
